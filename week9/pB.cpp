@@ -4,9 +4,10 @@ using namespace std;
 #define MOD 1000000007
 
 int main(){
-    int n, m, aux; 
+    int n, m;
+    long long aux;  
     cin >> n >> m;
-    int dp[n][m];
+    long long dp[n][m];
     memset(dp, 0, sizeof(dp)); 
     dp[0][0] = 1;
 
@@ -14,11 +15,12 @@ int main(){
         REP(j, 0 , m){
             cin >> aux; 
             aux %= MOD;
-            if (dp[i][j]){
-                if (i+aux < n && j < m) dp[i+aux][j] = (dp[i][j] + dp[i+aux][j]) % MOD;
-                if (i < n && j+aux < m) dp[i][j+aux] = (dp[i][j] + dp[i][j+aux]) % MOD;
+            if(aux != 0){
+                if (i+aux < n) dp[i+aux][j] = (dp[i][j] + dp[i+aux][j]) % MOD;
+                if (j+aux < m) dp[i][j+aux] = (dp[i][j] + dp[i][j+aux]) % MOD;
             }
+
         }
     } 
-    cout << dp[n-1][m-1];
+    std::cout << dp[n-1][m-1];
 }
