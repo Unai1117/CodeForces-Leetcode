@@ -4,6 +4,8 @@
         "*.tcc": "cpp",
         "ostream": "cpp",
         "random": "cpp",
-        "algorithm": "cpp"
-    }
+        "algorithm": "cpp",
+        "prueba2": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
