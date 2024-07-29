@@ -10,32 +10,28 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	int N, P; 
-	cin >> N >> P;
-	int arr[P];
-	REPN(P){
-		cin >> arr[i];
-	}
-	string res[P]; 
-	for(int i = 0; i < P; ++i){
-		int diff = abs(arr[i] - N);
-		if(diff == 0){
-			res[i] = "1p";
-		} else if(diff <= 5){
-			res[i] = "0.5p";
-		} else if(diff <= 10){
-			res[i] = "0.25p";
-		} else {
-			res[i] = "0p";
+	int N, C; 
+	cin >> N >> C;
+	bool flag = false; 
+	REPN(N){
+		int n;
+		cin >> n;
+		if(n == C){
+			flag = true; 
 		}
 	}
-	REPN(P){
-		cout << res[i] << " ";
+	if(flag){
+		cout << "YES" << endl;
+	} else {
+		cout << "NO" << endl;
 	}
-	cout << endl;
 }
 
 int main() {
-	solve(); 
+	int t; 
+	cin >> t;
+	while(t--){
+		solve(); 
+	}
 	return 0; 
 }
