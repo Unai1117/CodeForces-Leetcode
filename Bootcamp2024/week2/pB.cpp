@@ -10,7 +10,8 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	int n, a, b, c, d; 
+	int n;
+	ll a, b, c, d; 
 	cin >> n >> a >> b >> c >> d;
 	ll res; 
 	res = n + a; 
