@@ -10,12 +10,21 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	vector<ll> arr; 
+	ll n;
+	while(cin >> n){
+		arr.push_back(n);
+	}
+	ll res[arr.size()];
+	memset(res, 0, sizeof(res));
+	res[0] = arr[0]; 
+	for(size_t i = 1; i < arr.size(); ++i){
+		res[i] = arr[i] + res[i-1];
+	}
+	REPN(arr.size()){
+		cout << res[i] << " ";
+	}
+	cout << endl;
 }
 
 int main() {

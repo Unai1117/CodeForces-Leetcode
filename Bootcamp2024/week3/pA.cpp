@@ -10,12 +10,20 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	string s; 
+	int t; 
+	cin >> s >> t;
+	string res = "Vienen a pasear: "; 
+	if(s == "Soleado" && t >= 20){
+		res += "Adrian "; 
+	} if(s == "Soleado" || t > 15){
+		res += "Barbara "; 
+	} if(s == "Soleado" || s == "Nublado"){
+		res += "Carmen ";
+	} if(s != "Tormenta") {
+		res += "Dario "; 
+	}
+	cout << res << endl;
 }
 
 int main() {

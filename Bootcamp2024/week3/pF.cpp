@@ -10,12 +10,22 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	vector<int> arr;
+	int n;  
+	while(cin >> n){
+		arr.push_back(n);
+	}
+
+	for(size_t i = 1; i < arr.size(); ++i){
+		if(arr[i] > arr[i-1]){
+			cout << "S"; 
+		} else if(arr[i] < arr[i-1]){
+			cout << "B"; 
+		} else {
+			cout << "I"; 
+		}
+	}
+	cout << endl;
 }
 
 int main() {

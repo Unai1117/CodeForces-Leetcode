@@ -10,12 +10,31 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	int n; 
+	cin >> n;
+	int arr1[n], arr2[n];
+	REPN(n) {
+		cin >> arr1[i];
+	}
+	REPN(n) {
+		cin >> arr2[i];
+	}
+	REPN(n) {
+		if(i % 2 == 0){
+			cout << arr1[i] << " "; 
+		} else {
+			cout << arr2[i] << " ";
+		}
+	}
+	cout << endl;
+	REPN(n) {
+		if(i % 2 == 0){
+			cout << arr2[i] << " "; 
+		} else {
+			cout << arr1[i] << " ";
+		}
+	}
+	cout << endl;
 }
 
 int main() {

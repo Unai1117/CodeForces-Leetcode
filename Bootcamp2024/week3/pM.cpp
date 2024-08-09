@@ -10,12 +10,18 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	string line; 
+	while(getline(cin, line)){
+		if(line.length() % 2 == 0){
+			string reverse; 
+			for(int i = line.length() - 1; i >= 0; --i){
+				reverse += line[i]; 
+			}
+			cout << reverse << endl;
+		} else {
+			cout << line << endl;
+		}
+	}
 }
 
 int main() {

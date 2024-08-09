@@ -10,12 +10,20 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	int t; 
+	cin >> t;
+	int max = INT_MIN; int min = INT_MAX; 
+	REPN(t){
+		int n; 
+		cin >> n; 
+		if(n > max){
+			max = n; 
+		}
+		if(n < min){
+			min = n; 
+		}
+	}
+	cout << min << " " << max << endl;
 }
 
 int main() {

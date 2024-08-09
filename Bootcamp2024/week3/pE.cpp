@@ -10,12 +10,14 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	ll N; 
+	cin >> N;
+	string s = to_string(N);
+	ll sum = 0; 
+	for(char digit: s){
+		sum += digit - '0';
+	}
+	cout << sum << endl;
 }
 
 int main() {

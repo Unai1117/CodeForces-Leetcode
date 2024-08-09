@@ -10,15 +10,28 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	int N, C; 
+	cin >> N >> C;
+	bool flag = false; 
+	REPN(N){
+		int n;
+		cin >> n;
+		if(n == C){
+			flag = true; 
+		}
+	}
+	if(flag){
+		cout << "YES" << endl;
+	} else {
+		cout << "NO" << endl;
+	}
 }
 
 int main() {
-	solve(); 
+	int t; 
+	cin >> t;
+	while(t--){
+		solve(); 
+	}
 	return 0; 
 }

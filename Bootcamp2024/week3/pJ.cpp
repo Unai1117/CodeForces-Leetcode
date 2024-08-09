@@ -10,12 +10,13 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	string line; 
+	string lastLine; 
+
+	while(getline(cin, line)){
+		lastLine = line; 
+	}
+	cout << lastLine << endl;
 }
 
 int main() {

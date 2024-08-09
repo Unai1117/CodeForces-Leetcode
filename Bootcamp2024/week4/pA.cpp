@@ -10,15 +10,26 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	ll n, k; 
-	cin >> n >> k;
-	ll left = n << k; 
-	ll right = n >> k;
-	cout << left << endl;
-	cout << right << endl;
+	string s;
+	getline(cin, s);
+	int cont = 0, voc = 0; 
+	for(char c : s){
+		if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+			voc++;
+		}
+		if(c != ' '){
+			cont++;
+		}
+	}
+	cout << voc << " " << cont << endl;
 }
 
 int main() {
-	solve(); 
+	int n; 
+	cin >> n;
+	cin.ignore();
+	while(n--) {
+		solve();
+	} 
 	return 0; 
 }

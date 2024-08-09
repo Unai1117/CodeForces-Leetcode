@@ -10,7 +10,7 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	int a, b; 
+	ll a, b; 
 	cin >> a >> b;
 	ll sum = a + b;
 	cout << sum << endl;

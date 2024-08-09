@@ -10,7 +10,12 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	
+	ll a, b, c; 
+	cin >> a >> b >> c;
+	ll x = a & b; 
+	ll y = x | c;
+	ll z = y ^ b;
+	cout << x << " " << y << " " << z << endl; 
 }
 
 int main() {
