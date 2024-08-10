@@ -9,25 +9,21 @@ typedef unsigned long long ull;
 #define REPV(i, a, b) for (int i = a; i >= b; --i)
 #define MOD 1000000007
 
-struct GranoCafe {
-	int calidad; 
-	string tag; 
-};
-
-bool compare(const GranoCafe &a, const GranoCafe &b) {
-	if(a.calidad == b.calidad) return a.tag < b.tag;
-	return a.calidad < b.calidad;
+bool compare(const pair<int, int> &a, const pair<int, int> &b) {
+	if(a.first == b.first) return a.second < b.second;
+	return a.first > b.first;
 }
 
 void solve() {
-	int n; cin >> n; 
-	GranoCafe arr[n];
+	int n; cin >> n;
+	pair<int, int> arr[n];
 	REPN(n) {
-		cin >> arr[i].calidad >> arr[i].tag; 
+		int a, b; cin >> a >> b;
+		arr[i] = {a, b};
 	}
 	sort(arr, arr + n, compare);
 	REPN(n) {
-		cout << arr[i].calidad << " " << arr[i].tag << endl; 
+		cout << arr[i].first << " " << arr[i].second << endl;
 	}
 }
 
