@@ -8,14 +8,17 @@ typedef unsigned long long ull;
 #define REP(i, a, b) for (int i = a; i < b; ++i)
 #define REPV(i, a, b) for (int i = a; i >= b; --i)
 #define MOD 1000000007
-int dx[] = {-1, 1, 0, 0};
-int dy[] = {0, 0, -1, 1};
 
-void solve() {
-	
+int solve(int n) {
+	if(n == 1){
+		return 1;
+	}
+	return n + solve(n-1);
 }
 
 int main() {
-	solve(); 
+	int n; cin >> n;
+	int res = solve(n); 
+	cout << res << endl;
 	return 0; 
 }
