@@ -11,11 +11,51 @@ typedef unsigned long long ull;
 int dx[] = {-1, 1, 0, 0};
 int dy[] = {0, 0, -1, 1};
 
-void solve() {
+vector<char> solve(int n, vector<char>& inst){
+	stack<char> p; 
 	
+	for(int i = 0; i < n; ++i){
+		char c = inst[i];
+
+		if(!p.empty()){
+			char top = p.top();
+			if((top == 'F' && c == 'B') ||
+				(top == 'B' && c == 'F') ||
+				(top == 'L' && c == 'R') ||
+				(top == 'R' && c == 'L')) {
+				p.pop();
+			} else {
+				p.push(c);
+			}
+		} else {
+			p.push(c);
+		}
+	}
+
+	vector<char> res; 
+	while(!p.empty()){
+		res.push_back(p.top());
+		p.pop();
+	}
+
+	reverse(res.begin(), res.end());
+	return res; 
 }
 
 int main() {
-	solve(); 
-	return 0; 
+	int n; 
+	cin >> n;
+	vector<char> inst(n);
+	for(int i = 0; i < n; ++i){
+		cin >> inst[i];
+	}
+
+	vector<char> res = solve(n, inst);
+
+	for(char c : res){
+		cout << c << ' ';
+	}
+	entf; 
+
+	return 0;
 }

@@ -11,11 +11,23 @@ typedef unsigned long long ull;
 int dx[] = {-1, 1, 0, 0};
 int dy[] = {0, 0, -1, 1};
 
-void solve() {
-	
+int solve(const string& s, int k) {
+	set<string> set; 
+	for(int i = 0; i <= s.size() -k; ++i){
+		string sub = s.substr(i, k);
+		set.insert(sub);
+	}
+
+	return set.size();
 }
 
 int main() {
-	solve(); 
+	string s; 
+	int k;
+
+	cin >> s >> k;
+	int res = solve(s, k);
+	cout << res << endl;
+
 	return 0; 
 }
