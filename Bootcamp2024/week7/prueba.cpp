@@ -1,58 +1,57 @@
-#include <bits/stdc++.h>
 #include <iostream>
-#include <stack>
-#include <vector>
+#include <unordered_map>
+#include <queue>
 using namespace std;
 
-vector<char> simplificar_camino(int n, vector<char>& instrucciones) {
-    stack<char> pila;
-    
-    for (int i = 0; i < n; ++i) {
-        char instruccion = instrucciones[i];
-        
-        if (!pila.empty()) {
-            char ultima = pila.top();
-            if ((ultima == 'F' && instruccion == 'B') || 
-                (ultima == 'B' && instruccion == 'F') || 
-                (ultima == 'L' && instruccion == 'R') || 
-                (ultima == 'R' && instruccion == 'L')) {
-                pila.pop(); // Cancelar la última instrucción
-            } else {
-                pila.push(instruccion); // Añadir nueva instrucción
-            }
-        } else {
-            pila.push(instruccion); // Añadir la primera instrucción
-        }
+typedef long long ll;
+
+struct Compare {
+    bool operator()(const pair<ll, ll>& a, const pair<ll, ll>& b) {
+        return a.first < b.first; // Max-heap based on priority
     }
-    
-    // Transferir el contenido de la pila a un vector para generar la salida
-    vector<char> resultado;
-    while (!pila.empty()) {
-        resultado.push_back(pila.top());
-        pila.pop();
-    }
-    
-    // Invertir el vector para tener la secuencia en orden correcto
-    reverse(resultado.begin(), resultado.end());
-    
-    return resultado;
-}
+};
 
 int main() {
-    int n;
-    cin >> n;
-    vector<char> instrucciones(n);
+    int q;
+    cin >> q;
     
-    for (int i = 0; i < n; ++i) {
-        cin >> instrucciones[i];
+    unordered_map<ll, ll> tareas;
+    priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, Compare> maxHeap; 
+    
+    while (q--) {
+        char type;
+        cin >> type;
+        
+        if (type == '+') {
+            ll pr, id;
+            cin >> pr >> id;
+            tareas[id] = pr;
+            maxHeap.push({pr, id});
+        } 
+        else if (type == '-') {
+            ll id;
+            cin >> id;
+            if (tareas.find(id) != tareas.end()) {
+                cout << id << endl;
+                tareas.erase(id);
+            }
+        } 
+        else if (type == '!') {
+            while (!maxHeap.empty()) {
+                ll pr = maxHeap.top().first;
+                ll id = maxHeap.top().second;
+                
+                if (tareas.find(id) != tareas.end() && tareas[id] == pr) {
+                    cout << id << endl;
+                    tareas.erase(id); 
+                    maxHeap.pop(); 
+                    break;
+                } else {
+                    maxHeap.pop(); // Remove invalid elements
+                }
+            }
+        }
     }
-    
-    vector<char> resultado = simplificar_camino(n, instrucciones);
-    
-    for (char c : resultado) {
-        cout << c << ' ';
-    }
-    cout << endl;
     
     return 0;
 }
