@@ -10,13 +10,13 @@ typedef unsigned long long ull;
 #define MOD 1000000007
 
 void solve() {
-	int a; 
+	int a;
 	cin >> a;
-	double sol = sqrt(a);  
+	double sol = sqrt(a);
 	cout << sol << endl;
 }
 
 int main() {
 	solve();
-	return 0; 
+	return 0;
 }
