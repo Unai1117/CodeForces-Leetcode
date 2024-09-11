@@ -12,10 +12,10 @@ int dx[] = {-1, 1, 0, 0};
 int dy[] = {0, 0, -1, 1};
 
 void solve() {
-	
+
 }
 
 int main() {
-	solve(); 
-	return 0; 
+	solve();
+	return 0;
 }
