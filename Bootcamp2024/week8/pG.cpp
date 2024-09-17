@@ -70,7 +70,7 @@ int main() {
     }
 
 
-    if (odd_count != 0 && odd_count != 2) {
+    if (odd_count != 0) {
         cout << "-1" << endl;
         return 0;
     }
