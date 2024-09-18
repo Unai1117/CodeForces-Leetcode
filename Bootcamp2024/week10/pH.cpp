@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <cstring>
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
@@ -15,24 +14,18 @@ int dy[] = {0, 0, -1, 1};
 void solve() {
 	int n, m; cin >> n >> m;
 	ll dp[n][m];
-	ll aux;
 	memset(dp, 0, sizeof(dp));
-
 	dp[0][0] = 1;
-	for(int i = 0; i < n; ++i) {
-	   for(int j = 0; j < m; ++j) {
-			cin >> aux;
-			aux %= MOD; 
-			if(aux != 0){
-				if(i+aux < n) dp[i+aux][j] = (dp[i][j] + dp[i+aux][j]) % MOD; 
-				if(j+aux < m) dp[i][j+aux] = (dp[i][j] + dp[i][j+aux]) % MOD; 
-			}
+	REP(i, 0, n) {
+		REP(j, 0, m){
+			if(i+2 < n && j+1 < m) dp[i+2][j+1] += dp[i][j];
+			if(i+1 < n && j+2 < m) dp[i+1][j+2] += dp[i][j];
 		}
 	}
-	cout << dp[n-1][m-1] << endl; 
+	cout << dp[n-1][m-1] << endl;
 }
 
 int main() {
-	solve();
-	return 0;
+	solve(); 
+	return 0; 
 }
