@@ -5,7 +5,8 @@
         "ostream": "cpp",
         "random": "cpp",
         "algorithm": "cpp",
-        "prueba2": "c"
+        "prueba2": "c",
+        "cmath": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
