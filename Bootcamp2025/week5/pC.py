@@ -7,20 +7,18 @@
 # import re
 
 
-def inp(): #integer
-    return(int(input()))
-def inlt(): # list
-    return(list(map(int,input().split())))
-def insr(): # string
-    s = input()
-    return("".join(list(s[:len(s) - 1])))
-def invr(): # separated int
-    return(map(int,input().split()))
-
-
 def solve():
-    pass
-
+    n = int(input())
+    granos = []
+    
+    for _ in range(n): 
+        calidad, etiqueta = input().strip().split()
+        granos.append((int(calidad), etiqueta))
+        
+    granos.sort(key=lambda x: (x[0], x[1]))
+    
+    for calidad, etiqueta in granos:
+        print(calidad, etiqueta)
 
 if __name__ == "__main__":
     solve()

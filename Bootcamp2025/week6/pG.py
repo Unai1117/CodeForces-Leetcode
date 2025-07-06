@@ -17,10 +17,29 @@ def insr(): # string
 def invr(): # separated int
     return(map(int,input().split()))
 
-
-def solve():
-    pass
+def punto_silla(mat, n, m):
+    for i in range(n):
+        row_min = mat[i][0]
+        col_j = 0
+        for j in range(1, m):
+            if mat[i][j] < row_min:
+                row_min = mat[i][j]
+                col_j = j
+        
+        if all(mat[k][col_j] <= row_min for k in range(n)):
+            return i, col_j
+        
+    return -1, -1
 
 
 if __name__ == "__main__":
-    solve()
+    t = inp()
+    results = []
+    for _ in range(t):
+        n, m = invr()
+        mat = [list(map(int, input().split())) for _ in range(n)]
+        
+        x, y = punto_silla(mat, n, m)
+        results.append(f"{x} {y}")
+    
+    print("\n".join(results))

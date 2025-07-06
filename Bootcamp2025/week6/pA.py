@@ -18,9 +18,13 @@ def invr(): # separated int
     return(map(int,input().split()))
 
 
-def solve():
-    pass
+def solve(t):
+    if t == 0:
+        return
+    print(t)
+    solve(t - 1)
 
 
 if __name__ == "__main__":
-    solve()
+    t = inp()
+    solve(t)

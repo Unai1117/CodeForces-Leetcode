@@ -19,7 +19,17 @@ def invr(): # separated int
 
 
 def solve():
-    pass
+    n = inp()
+    arr = []
+    
+    for _ in range(n):
+        a, b = invr()
+        arr.append((a, b))
+        
+    arr.sort(key=lambda x: (-x[0], x[1]))
+    for a, b in arr:
+        print(a, b)    
+    
 
 
 if __name__ == "__main__":
