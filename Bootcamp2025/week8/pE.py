@@ -19,9 +19,27 @@ def invr(): # separated int
     return(map(int,input().split()))
 
 
-def solve():
-    pass
+def solve(n: int, edges: list[tuple[int, int]]) -> None:
+    adj = [[False] * (n + 1) for _ in range(n + 1)]
+    
+    for u, v in edges:
+        adj[v][u] = adj[u][v] = True
+    
+    missing = []
+    for i in range(1, n + 1):
+        for j in range(i + 1, n + 1):
+            if not adj[i][j]:
+                missing.append((i, j))
+                
+    print(len(missing))
+    
+    for u, v in missing:
+        print(u, v)
+    
 
 
 if __name__ == "__main__":
-    solve()
+    n, m = map(int, input().split())
+    
+    edges = [tuple(map(int, input().split())) for _ in range(m)]
+    solve(n, edges)

@@ -19,9 +19,23 @@ def invr(): # separated int
     return(map(int,input().split()))
 
 
-def solve():
-    pass
+def solve(n: int, p:list[int]) -> list[int]:
+    res = [0] * n
+    
+    for i in range(n):
+        visited = set()
+        current = i + 1
+        
+        while current not in visited:
+            visited.add(current)
+            current = p[current - 1]
+            
+        res[i] = current
+    return res
 
 
 if __name__ == "__main__":
-    solve()
+    n = inp()
+    p = list(map(int, input().split()))
+    res = solve(n, p)
+    print(*res)
