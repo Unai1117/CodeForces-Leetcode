@@ -4,6 +4,7 @@
 # (siendo n el número de filas)
 # Leer cadena eliminando espaciones en blanco -> # s = input().strip()
                                                  # cadena = re.sub(r"\s+", "", s)
+                                                 # s = re.sub('[^a-zA-Z0-9]', '', s).lower() !Eliminar todos los caracteres que no son alfanuméricos y convertir a minúsculas
 # import re
 
 

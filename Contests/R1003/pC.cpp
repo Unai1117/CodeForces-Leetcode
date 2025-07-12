@@ -13,7 +13,7 @@ int dy[] = {0, 0, -1, 1};
 
 void solve() {
 	int n, m; cin >> n >> m; 
-    vector<int> a(n); 
+    vector<ll> a(n); 
     REPN(n) cin >> a[i]; 
     int b; cin >> b; 
     if(n == 1){
